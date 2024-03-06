@@ -25,5 +25,4 @@ public class GeneralController {
     public String showIndex() {
         return "index";
     }
-
 }

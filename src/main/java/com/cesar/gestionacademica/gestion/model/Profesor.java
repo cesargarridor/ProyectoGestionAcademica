@@ -8,7 +8,8 @@ public class Profesor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String usuario;
+    @OneToOne
+    private Usuario usuario;
     private String password;
     private String nombre;
     private String apellidos;
