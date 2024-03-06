@@ -27,4 +27,51 @@ public class Asignatura {
             inverseJoinColumns = @JoinColumn(name = "alumno_id"))
     private Set<Alumno> alumnos;
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public String getCiclo() {
+        return ciclo;
+    }
+
+    public Set<Profesor> getProfesores() {
+        return profesores;
+    }
+
+    public Set<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public void setCiclo(String ciclo) {
+        this.ciclo = ciclo;
+    }
+
+    public void setProfesores(Set<Profesor> profesores) {
+        this.profesores = profesores;
+    }
+
+    public void setAlumnos(Set<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
 }
