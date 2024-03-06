@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="es">
 
 <head th:fragment="headerfiles">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
 </head>
+
 
 <body>
 <div class="container-fluid">
@@ -21,11 +24,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Inicio </a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/ayuda">Ayuda </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/asignaturas">Asignaturas </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/acerca">Acerca de </a>
@@ -39,17 +43,27 @@
         </nav>
     </div>
 
+    <div th:fragment="header">
+        <h2 class="text-center">Departamento de Informática </h2>
+
+        <div class="d-flex justify-content-center">
+            <div class="card bg-light text-center" style="width: 18rem;">
+                <img class="card-img-top" src="/img/ESCUDO_CHICO.png" alt="Escudo Informática">
+                <div class="card-body">
+                    <h5 class="card-title">Gestoria academica</h5>
+                    <p class="card-text"> Gestión integral de instituto. </p>
+                    <a href="#" id="menu_informe" class="btn btn-primary">Generar informe</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
     <div th:fragment="footer">
         <footer>
             <div class="text-center">
                 <hr/>
-                <p>Entró en el sistema como:
-                    <span th:text="${#authentication.name}"></span>
-                    (<span th:text="${#authentication.authorities[0]}"></span>)
-                <p sec:authorize="hasAuthority('admin')">
-                    <b>Este párrafo sólo se ve si eres un administrador</b>
-                </p>
-                </p>
+
                 <p>
                     <span class="text-center">Ⓒ 2024. IES Virgen del Carmen. CFGS Desarrollo Multiplataforma.</span>
                 </p>

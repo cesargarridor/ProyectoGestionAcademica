@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Gestión Académica: Iniciar Sesión</title>
+    <title>Gestion academica</title>
     <th:block th:replace="~{fragmentos/general.html :: headerfiles}"></th:block>
 </head>
 
@@ -10,7 +10,7 @@
 <div th:replace="~{fragmentos/general.html :: navigation}"> </div>
 
 <div class="container">
-    <h2>Iniciar Sesión</h2>
+    <h2>Login</h2>
     <form action="/login" method="POST" class="col g-4">
         <!-- username input -->
         <div class="form-outline mb-4">
@@ -21,7 +21,7 @@
         <!-- Password input -->
         <div class="form-outline mb-4">
             <input name="password" type="password" id="form2Example2" class="form-control" />
-            <label class="form-label" for="form2Example2">Contraseña</label>
+            <label class="form-label" for="form2Example2">Password</label>
         </div>
 
         <!-- 2 column grid layout for inline styling -->
@@ -30,7 +30,7 @@
                 <!-- Checkbox -->
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                    <label class="form-check-label" for="form2Example31"> Recuérdame </label>
+                    <label class="form-check-label" for="form2Example31"> Recuérdeme </label>
                 </div>
             </div>
 
@@ -41,12 +41,14 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar Sesión</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
 
     </form>
 </div>
 
 <div th:replace="~{fragmentos/general.html :: footer}"></div>
+</div>
 </body>
 
 </html>
