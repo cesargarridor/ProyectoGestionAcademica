@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="es">
 
+<head>
+    <title>Gestion academica</title>
+    <th:block th:replace="~{fragmentos/general.html :: headerfiles}"></th:block>
+</head>
+
+<body>
+<div th:replace="~{fragmentos/general.html :: navigation}"></div>
+<div class="container m-3">
+    <form class="row"
+          th:action="@{/profesores/edit/{id}(id=${profesor.id})}"
+          th:object="${profesor}"
+          method="post">
+
+        <input type="hidden" name="id" th:value="${profesor.id}" />
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre:</label>
+            <input class="form-control" name="nombre" placeholder="Escriba aquí el nombre del profesor" th:value="${profesor.nombre}" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="apellidos">Apellidos:</label>
+            <input class="form-control" name="apellidos" placeholder="Escriba aquí los apellidos del profesor" th:value="${profesor.apellidos}" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="email">Correo Electrónico:</label>
+            <input class="form-control" name="email" placeholder="Escriba aquí el correo electrónico del profesor" th:value="${profesor.email}" />
+        </div>
+
+        <div>
+            <button class="btn btn-success mt-3" type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+<div th:replace="~{fragmentos/general.html :: footer}"></div>
 </body>
+
 </html>

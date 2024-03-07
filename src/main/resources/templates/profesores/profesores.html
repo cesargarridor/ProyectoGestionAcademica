@@ -16,26 +16,36 @@
         <thead>
         <tr>
             <th>id</th>
-            <th>apellidos</th>
-            <th>email</th>
-            <th>nombre</th>
-
-
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Asignatura</th>
+            <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="profesor: ${profesores}">
             <td th:text="${profesor.id}"></td>
             <td th:text="${profesor.apellidos}"></td>
-            <td th:text="${profesor.email}">
+            <td th:text="${profesor.email}"></td>
             <td th:text="${profesor.nombre}"></td>
+            <td>
+    <span th:if="${profesor.asignaturas != null and profesor.asignaturas.size() > 0}">
+        <span th:each="asignatura : ${profesor.asignaturas}">
+            <span th:text="${asignatura.nombre}"></span><br/>
+        </span>
+    </span>
+                <a class="btn btn-primary" th:unless="${profesor.asignaturas != null and profesor.asignaturas.size() > 0}" th:href="@{/profesores/asignar/{profesorId}(profesorId=${profesor.id})}">Asignar Asignatura</a>
+            </td>
+
+
 
 
             <td>
-                <a class="btn btn-primary" th:href="|/profesores/edit/${profesor.id}|">actualizar</a>
-                <a class="btn btn-danger" th:href="@{/profesores/delete/}+${profesor.id}">borrar</a>
+                <a class="btn btn-primary" th:href="@{/profesores/edit/}+${profesor.id}">Actualizar</a>
             </td>
         </tr>
+
         </tbody>
     </table>
 </div>

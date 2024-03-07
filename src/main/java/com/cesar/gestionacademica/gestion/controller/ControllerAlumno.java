@@ -1,6 +1,7 @@
 package com.cesar.gestionacademica.gestion.controller;
 
 import com.cesar.gestionacademica.gestion.model.Alumno;
+import com.cesar.gestionacademica.gestion.model.Profesor;
 import com.cesar.gestionacademica.gestion.repos.RepoAlumno;
 import io.micrometer.common.lang.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +69,10 @@ public class ControllerAlumno {
             model.addAttribute("mensaje", "Alumno no encontrado");
             return "error";
         }
+    }
+    @PostMapping("/edit/{id}")
+    public String editAlumno(@PathVariable("id") @org.springframework.lang.NonNull Long id, @ModelAttribute("profesor") Alumno alumno) {
+        repoAlumno.save(alumno);
+        return "redirect:/alumnos";
     }
 }

@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="es">
 
+<head>
+    <title>Gestion academica</title>
+    <th:block th:replace="~{fragmentos/general.html :: headerfiles}"></th:block>
+</head>
+
+<body>
+<div th:replace="~{fragmentos/general.html :: navigation}"></div>
+<div class="container m-3">
+    <form class="row"
+          th:action="@{/alumnos/edit/{id}(id=${alumno.id})}"
+          th:object="${alumno}"
+          method="post">
+
+        <input type="hidden" name="id" th:value="${alumno.id}" />
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre:</label>
+            <input class="form-control" name="nombre" placeholder="Escriba aquí el nombre del alumno" th:value="${alumno.nombre}" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="apellidos">Apellidos:</label>
+            <input class="form-control" name="apellidos" placeholder="Escriba aquí los apellidos del alumno" th:value="${alumno.apellidos}" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="email">Correo Electrónico:</label>
+            <input class="form-control" name="email" placeholder="Escriba aquí el correo electrónico del alumno" th:value="${alumno.email}" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="telefono">Telefono:</label>
+            <input class="form-control" name="telefono" placeholder="Escriba aquí el telefono del alumno" th:value="${alumno.telefono}" />
+        </div>
+
+        <div>
+            <button class="btn btn-success mt-3" type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+<div th:replace="~{fragmentos/general.html :: footer}"></div>
 </body>
+
 </html>

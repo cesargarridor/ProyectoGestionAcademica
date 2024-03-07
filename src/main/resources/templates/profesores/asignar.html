@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Asignar Asignatura</title>
+    <th:block th:replace="~{fragmentos/general.html :: headerfiles}"></th:block>
+</head>
+
+<body>
+<div th:replace="~{fragmentos/general.html :: navigation}"> </div>
+
+<div class="container m-3">
+    <h3>Asignar Asignatura a Profesor</h3>
+    <form th:action="@{/profesores/asignar/{profesorId}(profesorId=${profesor.id})}" method="post">
+        <input type="hidden" name="profesorId" th:value="${profesor.id}" />
+        <div class="mb-3">
+            <label class="form-label" for="asignatura">Seleccionar Asignatura:</label>
+            <select class="form-select" name="asignatura" required>
+                <option value="">Seleccionar...</option>
+                <option th:each="asignatura : ${asignaturas}" th:value="${asignatura.id}" th:text="${asignatura.nombre}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Asignar</button>
+    </form>
+    <div th:if="${asignaturaSeleccionada != null}">
+        <p>Asignatura asignada: <span th:text="${asignaturaSeleccionada.nombre}"></span></p>
+    </div>
+</div>
+
+<div th:replace="~{fragmentos/general.html :: footer}"></div>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -19,6 +19,8 @@
             <th>apellidos</th>
             <th>email</th>
             <th>nombre</th>
+            <th>telefono</th>
+
 
 
         </tr>
@@ -34,7 +36,6 @@
 
             <td>
                 <a class="btn btn-primary" th:href="|/alumnos/edit/${alumno.id}|">actualizar</a>
-                <a class="btn btn-danger" th:href="@{/alumnos/delete/}+${alumno.id}">borrar</a>
             </td>
         </tr>
         </tbody>

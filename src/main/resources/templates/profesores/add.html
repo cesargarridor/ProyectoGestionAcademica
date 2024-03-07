@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="es">
 
+<head>
+    <title>Gestion academica</title>
+    <th:block th:replace="~{fragmentos/general.html :: headerfiles}"></th:block>
+</head>
+
+<body>
+<div th:replace="~{fragmentos/general.html :: navigation}"> </div>
+<div class="container m-3">
+    <form class="row"
+          th:action="@{/profesores/add}"
+          th:object="${profesor}"
+          method="post">
+
+        <div class="mb-3">
+            <label class="form-label" for="usuario_id">usuario:</label>
+            <input class="form-control" name="usuario_id" placeholder="Escriba aquí el usuario_id" th:value="${profesor.usuario}"/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="apellidos">apellidos:</label>
+            <input class="form-control" name="apellidos" placeholder="Escriba aquí sus apellidos" th:value="${profesor.apellidos}" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="nombre">nombre de:</label>
+            <input class="form-control" name="nombre" placeholder="Escriba aquí su nombre" th:value="${profesor.nombre}" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">nombre de:</label>
+            <input class="form-control" name="email" placeholder="Escriba aquí su email" th:value="${profesor.email}" />
+        </div>
+
+        <div>
+            <button class="btn btn-success mt-3" type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+<div th:replace="~{fragmentos/general.html :: footer}"></div>
+</div>
 </body>
+
 </html>
