@@ -20,6 +20,7 @@
             <th>email</th>
             <th>nombre</th>
             <th>telefono</th>
+            <th>Asignaturas</th>
 
 
 
@@ -32,8 +33,14 @@
             <td th:text="${alumno.email}">
             <td th:text="${alumno.nombre}"></td>
             <td th:text="${alumno.telefono}"></td>
-
-
+            <td>
+    <span th:if="${alumno.asignaturas != null and alumno.asignaturas.size() > 0}">
+        <span th:each="asignatura : ${alumno.asignaturas}">
+            <span th:text="${asignatura.nombre}"></span><br/>
+        </span>
+    </span>
+                <a class="btn btn-primary" th:unless="${alumno.asignaturas != null and alumno.asignaturas.size() > 0}" th:href="@{/alumnos/asignar/{alumnoId}(alumnoId=${alumno.id})}">Asignar Asignatura</a>
+            </td>
             <td>
                 <a class="btn btn-primary" th:href="|/alumnos/edit/${alumno.id}|">actualizar</a>
             </td>
